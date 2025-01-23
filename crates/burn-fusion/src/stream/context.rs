@@ -1039,6 +1039,13 @@ impl<E: Element> RelativeOpsScalar<E> for NumericOperationDescription<E> {
                     out: desc.out.to_relative(converter),
                 })
             }
+            NumericOperationDescription::CumSum(desc) => {
+                NumericOperationDescription::CumSum(ScalarOperationDescription {
+                    lhs: desc.lhs.to_relative(converter),
+                    rhs: desc.rhs,
+                    out: desc.out.to_relative(converter),
+                })
+            }
         }
     }
 }
