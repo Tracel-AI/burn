@@ -160,7 +160,7 @@ def main():
         "--save-model",
         action="store_true",
         default=True,
-        help="For Saving the current Model",
+        help="For Saving the current Model in Safetensors format",
     )
     parser.add_argument(
         "--export-onnx",
@@ -209,7 +209,6 @@ def main():
         scheduler.step()
 
     if args.save_model:
-        torch.save(model.state_dict(), "mnist.pt")
         save_file(model.state_dict(), "mnist.safetensors")
 
     if args.export_onnx:
